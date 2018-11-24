@@ -1,10 +1,12 @@
-import React, {Component, Fragment} from 'react'
-import { AppBar, Toolbar, Button, Grid, Drawer, Typography } from '@material-ui/core'
+import React, { Fragment } from 'react'
+import { AppBar, Toolbar, Button, Grid, Drawer } from '@material-ui/core'
+import MyModal from '../Modal';
 import { SideList } from '../sidelist'
 
 export default class Header extends React.Component {
   state = {
-    right: false
+    right: false,
+    modalOpen: false,
   }
 
   toggleDrawer(side, open) {
@@ -13,25 +15,41 @@ export default class Header extends React.Component {
     });
   };
 
+  toggleModal() {
+    console.log('click registered')
+    this.setState({ modalOpen: !this.state.modalOpen });
+  };
+
+  //Make login modal a separate component
+
   render() {
     const styles = {
       list: {
-        width: 8000,
+        maxwidth: 10000,
       },
       root: {
         flexGrow: 1,
       },
+      toolbar:{
+        maxwidth : 1170
+      }
+
     };
     return (
       <Fragment>
         <AppBar className={styles.root}>
           <Toolbar>
-             <Button
-              onClick={ () => this.toggleDrawer('right', true) }
-              variant="contained" color="secondary"
-              style={{ margin: 'auto' }}>
-              Navigate
+
+            <Grid >logo</Grid>
+            <div>
+            <Button
+            style={{position : "absolute" , right : 0 , marginTop : -20}}
+            onClick={() => this.toggleDrawer('right',true)}
+            variant="contained" color="primary"
+            >
+            add material-ui/icons for button
             </Button>
+            </div>
           </Toolbar>
         </AppBar>
 
@@ -43,11 +61,19 @@ export default class Header extends React.Component {
           <div
             tabIndex={0}
             role="button"
-            onClick={ () => this.toggleDrawer('right', false) }
+            // onClick={ () => this.toggleDrawer('right', false) }
             onKeyDown={ () => this.toggleDrawer('right', false) }
           >
-          <SideList styles={styles} />
+          <SideList
+            styles={styles}
+            toggleModal={() => this.toggleModal() }
+          />
           </div>
+          <MyModal
+            modalType="header"
+            modalOpen={this.state.modalOpen}
+            toggleModal={() => this.toggleModal() }
+          />
         </Drawer>
       </Fragment>
     );
