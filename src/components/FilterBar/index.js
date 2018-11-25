@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormGroup, FormControlLabel, Checkbox } from '@material-ui/core'
+import { FormGroup, FormControlLabel, Checkbox, Grid } from '@material-ui/core'
 
 export default class Filter extends React.Component {
   constructor(props){
@@ -64,7 +64,7 @@ renderFormItems() {
 
 render() {
   return (
-    <FormGroup row>
+    <FormGroup row style={{justifyContent: 'center'}}>
       { this.renderFormItems() }
     </FormGroup>
   );

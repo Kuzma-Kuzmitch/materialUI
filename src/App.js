@@ -62,7 +62,9 @@ class App extends Component {
       <MuiThemeProvider theme={theme}>
         <Header />
         <About />
-        <Filter />
+        <div className="container">
+          <Filter />
+        </div>
         <Grid id="Articles" container spacing={36}>
           { this.renderCards() }
         </Grid>
