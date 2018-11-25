@@ -34,28 +34,30 @@ export default class Filter extends React.Component {
     };
 }
 
-toggleFilter = name => {
+toggleFilter(name) {
   const selection = this.state.filters.map(boro => {
     if(boro.name === name) boro.checked = !boro.checked;
+    return boro;
   });
   this.setState({ filters: selection });
 };
 
-renderFormItems = () => {
+renderFormItems() {
   const items = this.state.filters.map(filter => {
-    console.log(filter)
-    return (
-      <FormControlLabel
-        control={
-          <Checkbox
-            checked={filter.checked}
-            onChange={this.toggleFilter(filter.name)}
-            value={filter.checked}
-          />
-        }
-        label={filter.name}
-      />
-    );
+    if(filter !== undefined) {
+      return (
+        <FormControlLabel
+          control={
+            <Checkbox
+              checked={filter.checked}
+              onChange={() => this.toggleFilter(filter.name)}
+              value={filter.checked}
+            />
+          }
+          label={filter.name}
+        />
+      );
+    }
   });
   return items;
 }

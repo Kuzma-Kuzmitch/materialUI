@@ -7,7 +7,7 @@ import { MyCard } from './components/card';
 import { Header } from './components/header';
 import { About } from './components/About';
 import { Contact } from './components/Contact';
-// import Filter from './components/FilterBar';
+import Filter from './components/FilterBar';
 // import { MyModal } from './components/Modal';
 import { articles } from './Data/DummyArticles';
 
@@ -35,7 +35,7 @@ class App extends Component {
   // const scrollPoint = document.querySelector('.my-section').offsetTop;
   // window.scrollTo({ top: scrollPoint, behavior: 'smooth' })
 
-  toggleModal = () => {
+  toggleModal() {
     this.setState({ modalOpen: !this.state.modalOpen });
   };
 
@@ -46,7 +46,7 @@ class App extends Component {
       <Grid key={idx} item xs style={this.state.customStyles}
       container spacing={6} >
         <MyCard
-          toggleModal={this.toggleModal()}
+          toggleModal={() => this.toggleModal()}
           modalOpen={this.state.modalOpen}
           container
           spacing={1}
@@ -62,6 +62,7 @@ class App extends Component {
       <MuiThemeProvider theme={theme}>
         <Header />
         <About />
+        <Filter />
         <Grid id="Articles" container spacing={36}>
           { this.renderCards() }
         </Grid>
