@@ -3,10 +3,11 @@ import './App.css';
 import { Grid } from '@material-ui/core'
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 import deepOrange from '@material-ui/core/colors/deepOrange';
-import { MyCard } from './components/card';
-import { Header } from './components/header';
+import { MyCard } from './components/Card';
+import Header from './components/Header';
 import { About } from './components/About';
 import { Contact } from './components/Contact';
+import Filter from './containers/Filter';
 // import { MyModal } from './components/Modal';
 import { articles } from './Data/DummyArticles';
 
@@ -28,21 +29,37 @@ class App extends Component {
 
   componentDidMount() {
     // Fetch cards and put them into variable this.state.cardInfo
-    this.setState({cardInfo: articles})
+    this.setState({cardInfo: articles});
+
   }
 
   // const scrollPoint = document.querySelector('.my-section').offsetTop;
   // window.scrollTo({ top: scrollPoint, behavior: 'smooth' })
 
   toggleModal() {
-    console.log('click registered')
     this.setState({ modalOpen: !this.state.modalOpen });
   };
 
   // This method iterates over and returns all cards
   renderCards() {
     // Use the Spread Operator to include entire contents of card item
-    const cards = this.state.cardInfo.map((card, idx) =>
+    let matches;
+    const allBoxes = this.props.filters.filter(item => item.name === 'All');
+    const [ all ] = allBoxes;
+
+    if (!all.checked) {
+      matches = this.state.cardInfo.filter(card => {
+       const entryArray = this.props.filters.filter(filter => filter.name === card.boro);
+       const [ entry ] = entryArray;
+       if(entry.checked) return card;
+     });
+   } else {
+     matches = this.state.cardInfo;
+   }
+
+    console.log(matches)
+
+    const cards = matches.map((card, idx) =>
       <Grid key={idx} item xs style={this.state.customStyles}
       container spacing={6} >
         <MyCard
@@ -62,6 +79,9 @@ class App extends Component {
       <MuiThemeProvider theme={theme}>
         <Header />
         <About />
+        <div className="container">
+          <Filter />
+        </div>
         <Grid id="Articles" container spacing={36}>
           { this.renderCards() }
         </Grid>

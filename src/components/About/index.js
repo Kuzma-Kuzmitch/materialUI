@@ -4,9 +4,9 @@ import Typography from '@material-ui/core/Typography';
 
 export const About = ({ styles, modalOpen, toggleModal }) =>
 <div id="About">
-      <Paper elevation={1} style={{marginBottom: 100, marginTop: 100}}>
-        <Typography variant="h5" component="h3">
-          About us.
+      <Paper elevation={1} style={{marginBottom: 100, marginTop: 100, padding: 20}}>
+        <Typography variant="h5" component="h3" align="center" gutterBottom="true">
+          About
         </Typography>
         <Typography component="p">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. In pellentesque elementum orci, vitae tempus ex dignissim non. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis eros vel magna porta dignissim pellentesque id tortor. Sed ultricies accumsan eros, id dictum velit fermentum sit amet. Etiam vestibulum erat urna, eget pulvinar mauris hendrerit finibus. Nulla nec nisi blandit, tempus mauris sed, sollicitudin leo. Curabitur dictum at enim ac ultricies. Pellentesque et orci sagittis, molestie erat a, consequat tellus.
