@@ -1,3 +1,3 @@
-import SideNav from './Sidenav'
+import SideNav from './sidenav'
 
 export { SideNav }

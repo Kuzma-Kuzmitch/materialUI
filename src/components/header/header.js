@@ -1,12 +1,12 @@
 import React, { Fragment } from 'react'
 import { AppBar, Toolbar, Button, Grid, Drawer } from '@material-ui/core'
-import MyModal from '../Modal';
+import Login from '../Login';
 import { SideList } from '../sidelist'
 
 export default class Header extends React.Component {
   state = {
     right: false,
-    modalOpen: false,
+    loginOpen: false,
   }
 
   toggleDrawer(side, open) {
@@ -15,9 +15,8 @@ export default class Header extends React.Component {
     });
   };
 
-  toggleModal() {
-    console.log('click registered')
-    this.setState({ modalOpen: !this.state.modalOpen });
+  toggleLogin() {
+    this.setState({ loginOpen: !this.state.loginOpen });
   };
 
   //Make login modal a separate component
@@ -66,13 +65,12 @@ export default class Header extends React.Component {
           >
           <SideList
             styles={styles}
-            toggleModal={() => this.toggleModal() }
+            toggleLogin={() => this.toggleLogin() }
           />
           </div>
-          <MyModal
-            modalType="header"
-            modalOpen={this.state.modalOpen}
-            toggleModal={() => this.toggleModal() }
+          <Login
+            loginOpen={this.state.loginOpen}
+            toggleLogin={() => this.toggleLogin() }
           />
         </Drawer>
       </Fragment>
