@@ -1,0 +1,10 @@
+[{"_id":{"$oid":"5bfbcd210499f00c24491338"},"username":"dipshit","password":"shitty12d3","email":"shitusdder1@poopy.com","__v":0},
+{"_id":{"$oid":"5bfbce1a85e946c7b4e35514"},"username":"john","password":"1234","email":"email@email.com","writenPost":"3","editedPost":"12"},
+{"_id":{"$oid":"5bfbce4985e946c7b4e35528"},"username":"bob","password":"1234","email":"email2@email.com","writenPost":"6","editedPost":"54"},
+{"_id":{"$oid":"5bfbce4985e946c7b4e35529"},"username":"lemon","password":"1234","email":"email3@email.com","writenPost":"1","editedPost":"9"},
+{"_id":{"$oid":"5bfbce4985e946c7b4e3552a"},"username":"brent","password":"1234","email":"email4@email.com","writenPost":"11","editedPost":"73"},
+{"_id":{"$oid":"5bfcedb6e3d2c65ece442b29"},"username":"gigi","password":"noods123","email":"xxxxxxx@email.com","writenPost":"2","editedPost":"90"},
+{"_id":{"$oid":"5bfcedb6e3d2c65ece442b2a"},"username":"toby","password":"toby123","email":"tobygod@email.com","writenPost":"9","editedPost":"50"},
+{"_id":{"$oid":"5bfcedb6e3d2c65ece442b2b"},"username":"steven","password":"grass","email":"assgrass@email.com","writenPost":"101","editedPost":"865"},
+{"_id":{"$oid":"5bfcedb6e3d2c65ece442b2c"},"username":"louis","password":"realbutter","email":"maxcheese@email.com","writenPost":"5","editedPost":"25"}
+]
