@@ -17,7 +17,7 @@ export const MyCard = (props) => {
   } = props;
 
   return (
-    <Card>
+    <Card raised="true" square="true">
        <CardContent>
          <Typography color="inherit">
            { label }
@@ -25,8 +25,12 @@ export const MyCard = (props) => {
          <Typography variant="h2" gutterBottom="true">
           { title }
          </Typography>
-         <Typography color="inherit" noWrap="true">
-         {content}
+         <Typography color="inherit" noWrap="true" paragraph
+            style={{
+                whiteSpace: "normal",
+                wordWrap: "break-word"
+                 }}>
+         { content }
          </Typography>
        </CardContent>
        <CardActions>
