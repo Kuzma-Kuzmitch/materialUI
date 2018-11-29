@@ -1,12 +1,15 @@
 import React, { Fragment } from 'react'
-import { AppBar, Toolbar, Button, Grid, Drawer } from '@material-ui/core'
+import { AppBar, Toolbar, Button, Grid, Drawer } from '@material-ui/core';
+import LocationCity from '@material-ui/icons/LocationCity'
 import Login from '../Login';
-import { SideList } from '../sidelist'
+import { SideList } from '../sidelist';
+import { SignUp } from '../SignUp';
 
 export default class Header extends React.Component {
   state = {
     right: false,
     loginOpen: false,
+    signUpOpen: false,
   }
 
   toggleDrawer(side, open) {
@@ -18,6 +21,10 @@ export default class Header extends React.Component {
   toggleLogin() {
     this.setState({ loginOpen: !this.state.loginOpen });
   };
+
+  toggleSignUp() {
+    this.setState({ signUpOpen: !this.state.signUpOpen })
+  }
 
   //Make login modal a separate component
 
@@ -38,15 +45,21 @@ export default class Header extends React.Component {
       <Fragment>
         <AppBar className={styles.root}>
           <Toolbar>
-
-            <Grid >logo</Grid>
+            <Grid >
+            <LocationCity />
+            </Grid>
+            <Grid
+            style={{marginLeft: 855, fontSize: 32, fontWeight: 'lighter'}}
+            >
+            Citizen
+            </Grid>
             <div>
             <Button
-            style={{position : "absolute" , right : 0 , marginTop : -20}}
+            style={{position : "absolute" , right : 0 , marginTop : -20, marginRight: 20}}
             onClick={() => this.toggleDrawer('right',true)}
             variant="contained" color="primary"
             >
-            add material-ui/icons for button
+            Navigation
             </Button>
             </div>
           </Toolbar>
@@ -65,12 +78,17 @@ export default class Header extends React.Component {
           >
           <SideList
             styles={styles}
-            toggleLogin={() => this.toggleLogin() }
+            toggleLogin={ () => this.toggleLogin() }
+            toggleSignUp={ () => this.toggleSignUp() }
           />
           </div>
           <Login
             loginOpen={this.state.loginOpen}
-            toggleLogin={() => this.toggleLogin() }
+            toggleLogin={ () => this.toggleLogin() }
+          />
+          <SignUp
+            signUpOpen={this.state.signUpOpen}
+            toggleSignUp={ () => this.toggleSignUp() }
           />
         </Drawer>
       </Fragment>

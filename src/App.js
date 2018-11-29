@@ -2,21 +2,21 @@ import React, { Component } from 'react';
 import './App.css';
 import { Grid } from '@material-ui/core'
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
-import deepOrange from '@material-ui/core/colors/deepOrange';
+// import pink from '@material-ui/core/colors/deepOrange';
 import { MyCard } from './components/card';
 import { Header } from './components/header';
 import { About } from './components/About';
 import { Contact } from './components/Contact';
-import Filter from './components/FilterBar';
-// import { MyModal } from './components/Modal';
 import { articles } from './Data/DummyArticles';
 
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: '#c62828',
+      main: '#0288d1',
     },
-    secondary: deepOrange,
+    secondary: {
+      main: '#b3e5fc'
+    },
   },
 });
 
@@ -43,13 +43,11 @@ class App extends Component {
   renderCards() {
     // Use the Spread Operator to include entire contents of card item
     const cards = this.state.cardInfo.map((card, idx) =>
-      <Grid key={idx} item xs style={this.state.customStyles}
+      <Grid key={idx} item sm style={this.state.customStyles}
       container spacing={6} >
         <MyCard
           toggleModal={() => this.toggleModal()}
           modalOpen={this.state.modalOpen}
-          container
-          spacing={1}
           {...card}
         />
       </Grid>
@@ -63,9 +61,11 @@ class App extends Component {
         <Header />
         <About />
         <div className="container">
-          <Filter />
         </div>
-        <Grid id="Articles" container spacing={36}>
+        <Grid id="Articles" container
+          direction="row"
+          justify="center"
+          alignItems="center">
           { this.renderCards() }
         </Grid>
         <Contact />

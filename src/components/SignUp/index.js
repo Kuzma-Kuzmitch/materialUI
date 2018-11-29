@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, TextField, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions } from "@material-ui/core"
 
-export default class Login extends React.Component {
+export class SignUp extends React.Component {
   constructor(props){
     super(props);
     this.state = {
@@ -19,23 +19,37 @@ export default class Login extends React.Component {
 
   render() {
     const {
-      loginOpen,
-      toggleLogin,
+      signUpOpen,
+      toggleSignUp,
     } = this.props;
     return (
       <div>
         <Dialog
-          open={loginOpen}
-          onClose={toggleLogin}
+          open={signUpOpen}
+          onClose={toggleSignUp}
           aria-labelledby="form-dialog-title"
         >
-          <DialogTitle id="form-dialog-title" style={{textDecorationLine: 'underline'}}>Login</DialogTitle>
+          <DialogTitle id="form-dialog-title" style={{textDecorationLine: 'underline'}}>Sign Up</DialogTitle>
           <DialogContent>
             <DialogContentText>
-              Please enter your email and password.
+              Please enter your information below:
             </DialogContentText>
             <TextField
               autoFocus
+              margin="dense"
+              id="name"
+              label="First Name"
+              type="name"
+              fullWidth
+            />
+            <TextField
+              margin="dense"
+              id="name"
+              label="Last Name"
+              type="name"
+              fullWidth
+            />
+            <TextField
               margin="dense"
               id="name"
               label="Email Address"
@@ -48,14 +62,14 @@ export default class Login extends React.Component {
               label="Password"
               type="password"
               fullWidth
-        />
+            />
           </DialogContent>
           <DialogActions>
-            <Button onClick={this.toggleLogin} color="primary">
+            <Button onClick={this.toggleSignUp} color="inherit">
               Close
             </Button>
-            <Button onClick={this.toggleLogin} color="primary">
-              Login
+            <Button onClick={this.toggleSignUp} color="inherit">
+              Sign Up
             </Button>
           </DialogActions>
         </Dialog>
