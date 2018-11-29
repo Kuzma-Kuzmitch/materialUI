@@ -1,0 +1,28 @@
+    [{
+    "username": "john",
+    "password": "1234",
+    "email": "email@email.com",
+    "writenPost": "3",
+    "editedPost": "12"
+},
+{
+    "username": "bob",
+    "password": "1234",
+    "email": "email@email.com",
+    "writenPost": "6",
+    "editedPost": "54"
+},
+{
+    "username": "lemon",
+    "password": "1234",
+    "email": "email@email.com",
+    "writenPost": "1",
+    "editedPost": "9"
+},
+{
+    "username": "brent",
+    "password": "1234",
+    "email": "email@email.com",
+    "writenPost": "11",
+    "editedPost": "73"
+}]
