@@ -22,7 +22,7 @@ const theme = createMuiTheme({
 
 class App extends Component {
   state = {
-    customStyles: { marginTop: 100, marginLeft: 20, marginRight: 25 },
+    customStyles: { marginTop: 100, marginLeft: 20, marginRight: 25, marginBottom: 100 },
     cardInfo: [],
     modalOpen: false,
   };

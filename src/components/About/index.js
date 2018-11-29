@@ -4,7 +4,8 @@ import Typography from '@material-ui/core/Typography';
 
 export const About = ({ styles, modalOpen, toggleModal }) =>
 <div id="About">
-      <Paper elevation={1} style={{marginBottom: 50, marginTop: 0, padding: 400}}>
+  <div id="City">
+      <Paper elevation={1} style={{marginBottom: 50, marginTop: 0, padding: 400, backgroundColor: "#faebd7", maxWidth: 300, marginLeft: "auto", marginRight: "auto", opacity: .9}}>
         <Typography variant="h1" component="h3" align="center" gutterBottom="true">
           About.
         </Typography>
@@ -13,3 +14,4 @@ export const About = ({ styles, modalOpen, toggleModal }) =>
         </Typography>
       </Paper>
     </div>
+  </div>

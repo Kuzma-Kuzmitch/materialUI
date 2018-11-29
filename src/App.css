@@ -33,5 +33,13 @@
 }
 
 body{
-  background: #343435
+  background: #dfeff8
+}
+
+#City {
+  background-image: url("./Data/nyc.jpg");
+}
+
+#Sky {
+  background-image: url("./Data/skyline.jpg");
 }
