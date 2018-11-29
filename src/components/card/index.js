@@ -1,6 +1,8 @@
 import React from "react";
 import { PropTypes } from 'prop-types';
 import { Card, CardActions, CardContent, Button, Typography } from '@material-ui/core';
+import ThumbUpAlt from '@material-ui/icons/ThumbUpAlt';
+import ThumbDownAlt from '@material-ui/icons/ThumbDownAlt'
 import MyModal from '../Modal';
 
 export const MyCard = (props) => {
@@ -17,13 +19,13 @@ export const MyCard = (props) => {
   return (
     <Card>
        <CardContent>
-         <Typography color="inherit" gutterBottom>
+         <Typography color="inherit">
            { label }
          </Typography>
-         <Typography variant="h5" component="h2">
+         <Typography variant="h2" gutterBottom="true">
           { title }
          </Typography>
-         <Typography color="inherit">
+         <Typography color="inherit" noWrap="true">
          {content}
          </Typography>
        </CardContent>
@@ -35,11 +37,26 @@ export const MyCard = (props) => {
           color="primary">
           { buttonText }
           </Button>
-          <MyModal
-           toggleModal={toggleModal}
-           modalOpen={modalOpen}
-           title={ label }
-           content={ content } />
+          <Button
+           variant="contained"
+           size="small"
+           color="primary">
+           Edit
+           </Button>
+           <Button
+           style={{marginLeft: 100}}
+            >
+            <ThumbUpAlt />
+            </Button>
+            <Button
+            >
+             <ThumbDownAlt />
+             </Button>
+             <MyModal
+              toggleModal={toggleModal}
+              modalOpen={modalOpen}
+              title={ label }
+              content={ content } />
        </CardActions>
      </Card>
   );

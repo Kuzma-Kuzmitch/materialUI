@@ -13,7 +13,7 @@ import { List, ListItem, ListItemText, Divider } from '@material-ui/core'
 // ))}
 
 
-export const SideList = ({ styles, loginOpen, toggleLogin }) => {
+export const SideList = ({ styles, loginOpen, toggleLogin, toggleSignUp, signUpOpen }) => {
   const scrollToPoint = (point) => {
     window.scrollTo({ top: point, behavior: 'smooth' })
   }
@@ -35,6 +35,11 @@ export const SideList = ({ styles, loginOpen, toggleLogin }) => {
       <List>
         {['Sign In'].map((text, index) => (
           <ListItem button onClick={toggleLogin} key={text}>
+            <ListItemText primary={text} />
+          </ListItem>
+        ))}
+        {['Sign Up'].map((text, index) => (
+          <ListItem button onClick={toggleSignUp} key={text}>
             <ListItemText primary={text} />
           </ListItem>
         ))}
